@@ -53,6 +53,6 @@ app.get('/songs/:name',(req,res)=>{
 app.use((req,res,next)=>{
     res.redirect("/");
 })
-app.listen(8000,()=>{
+app.listen(process.env.PORT || 8000,()=>{
     console.log('Listen in port 8000')
 })
