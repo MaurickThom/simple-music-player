@@ -27,12 +27,14 @@ const frameLooper = ()=>{
 }
 
 const initMp3Player = ()=>{
-    contextAudio = new AudioContext()
-    analyzer = contextAudio.createAnalyser()
-    contextCanvas = canvas.getContext('2d')
-    source = contextAudio.createMediaElementSource(audio)
-    source.connect(analyzer)
-    analyzer.connect(contextAudio.destination)
+    if(!source){
+        contextAudio = new AudioContext()
+        analyzer = contextAudio.createAnalyser()
+        contextCanvas = canvas.getContext('2d')
+        source = contextAudio.createMediaElementSource(audio)
+        source.connect(analyzer)
+        analyzer.connect(contextAudio.destination)
+    }
     frameLooper()
 }
 
